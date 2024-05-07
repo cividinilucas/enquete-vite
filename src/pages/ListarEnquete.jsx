@@ -1,9 +1,16 @@
 import React from "react";
 
 const ListarEnquete = () => {
-    
-        return <section> Página Lista enquete </section>
 
+        return(
+
+                <section>
+
+                        Sobre
+
+                </section>
+
+        )
 }
 
 export default ListarEnquete;

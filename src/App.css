@@ -63,14 +63,17 @@ backdrop-filter: blur(0.7px);
 border: 1px solid rgba(151, 121, 182, 0.54);
 padding: 20px;
 width: 35%;
+
+
+animation-duration: 0.3s;
 }
 
 input{
   border: 0;
-  border-bottom: 2px solid transparent #c2c2c2;
+  border-bottom: 2px solid #c2c2c2;
   border-radius: 7px;
   height: 25px;
-  font-size: 1.7em;
+  font-size: 1em;
   padding: 5px;
   margin: 5px 0;
   background-color: rgba(255, 255, 255, 0.384);
@@ -93,4 +96,10 @@ button{
   cursor: pointer;
   font-size: 1em;
   width: 100%;
+  text-shadow: 10px;
+}
+
+input::placeholder{
+  font-style: italic;
+  text-shadow: 13px;
 }
