@@ -14,7 +14,12 @@ const Login = () => {
 
         if(usuario == "Lucas" && senha =="123"){
             setLogin(true);
+            alert('Login efetuado')
             Cookies.set("usuario", usuario, {expires: 7})
+        }if(usuario != "Lucas"){
+            alert('Usuário incorreto')
+        }else if(senha != "123"){
+            alert("Senha incorreta")
         }
     }
 
