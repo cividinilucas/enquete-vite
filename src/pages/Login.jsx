@@ -7,15 +7,15 @@ const Login = () => {
     
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
+    const [login, setLogin] = useState(false);
     
     const submitForm = (e) => {
         e.preventDefault();
 
         if(usuario == "Lucas" && senha =="123"){
+            setLogin(true);
             Cookies.set("usuario", usuario, {expires: 7})
         }
-
-
     }
 
         return( 
@@ -41,7 +41,7 @@ const Login = () => {
                 <button type="submit" className="animate__animated animate__headShake"> Acessar </button>
             </form>
         </section>
-        )
+    )
 }
 
 export default Login;
