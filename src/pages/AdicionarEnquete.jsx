@@ -1,9 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useEnquetes } from "../config/EnqueteContext";
+
+
 
 const AdicionarEnquete = () => {
+  const {addEnquete} = useEnquetes()
   const [enquete, setEnquete] = useState("");
   const [opcoes, setOpcoes] = useState([]);
+
+  addEnquete({enquete})
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -46,14 +52,24 @@ const AdicionarEnquete = () => {
         ))}
         <br />
         {enquete ? (
-          <button className="animate__animated animate__zoomIn" type="submit" onClick={addOpcao}>
+          <button
+            className="animate__animated animate__zoomIn"
+            type="submit"
+            onClick={addOpcao}
+          >
             Adicionar opção
           </button>
         ) : (
           ""
         )}
- 
-        {opcoes.length > 0 ? <button className="animate__animated animate__zoomIn" type="submit">Salvar</button> : ""}
+
+        {opcoes.length > 0 ? (
+          <button className="animate__animated animate__zoomIn" type="submit">
+            Salvar
+          </button>
+        ) : (
+          ""
+        )}
       </form>
     </section>
   );
