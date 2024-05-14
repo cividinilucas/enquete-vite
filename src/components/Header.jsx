@@ -5,12 +5,13 @@ import {
   faList,
   faPlus,
   faUser,
-  faCircle,
   faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
-
+import Cookies from "js-cookie";
 
 const Header = () => {
+  const usuario = Cookies.get("usuario");
+
   return (
     <header>
       <nav>
@@ -19,17 +20,25 @@ const Header = () => {
             <FontAwesomeIcon icon={faList} /> Listar Enquetes
           </Link>
           <Link to="/sobre">
-            <FontAwesomeIcon icon={faCircleInfo}/> Sobre
+            <FontAwesomeIcon icon={faCircleInfo} /> Sobre
           </Link>
         </div>
 
         <div>
-          <Link to="/adicionar-enquete">
-            <FontAwesomeIcon icon={faPlus} /> Adicionar Enquete
-          </Link>
-          <Link to="/login">
-            <FontAwesomeIcon icon={faUser} /> Login
-          </Link>
+          {usuario == undefined ? (
+            <Link to="/login">
+              <FontAwesomeIcon icon={faUser} /> Login
+            </Link>
+          ) : (
+            <>
+              <Link to="/adicionar-enquete">
+                <FontAwesomeIcon icon={faPlus} /> Adicionar Enquete
+              </Link>
+              <Link to="/login">
+                <FontAwesomeIcon icon={faUser} /> {usuario}
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </header>

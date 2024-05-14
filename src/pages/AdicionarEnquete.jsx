@@ -21,7 +21,7 @@ const AdicionarEnquete = () => {
   return (
     <section>
       <form onSubmit={submitForm}>
-        <label> Nome o nome da enquete? </label>
+        <label> Qual o nome da enquete? </label>
         <br />
         <input
           autoFocus
@@ -55,7 +55,7 @@ const AdicionarEnquete = () => {
  
         {opcoes.length > 0 ? <button className="animate__animated animate__zoomIn" type="submit">Salvar</button> : ""}
       </form>
-    </section
+    </section>
   );
 };
 
