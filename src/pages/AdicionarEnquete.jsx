@@ -9,10 +9,20 @@ const AdicionarEnquete = () => {
   const [enquete, setEnquete] = useState("");
   const [opcoes, setOpcoes] = useState([]);
 
-  addEnquete({enquete})
 
   const submitForm = (e) => {
     e.preventDefault();
+
+    for(let i=0; i < opcoes.length; i++){
+      if(!opcoes[i]){
+        return false;
+      }
+    
+    }
+
+    addEnquete({enquete, opcoes});
+    setEnquete("")
+    setOpcoes([""])
   };
   const addOpcao = () => {
     setOpcoes([...opcoes, ""]);

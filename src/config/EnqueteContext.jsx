@@ -5,21 +5,19 @@ import { createContext } from "react";
 
 const EnqueteContext = createContext();
 
-export const useEnquetes = () => useContext(EnqueteContext) 
+export const useEnquetes = () => useContext(EnqueteContext);
 
 const EnqueteProvider = ({ children }) => {
-    
-    const [enquetes, setEnquetes] = useState([])
+  const [enquetes, setEnquetes] = useState([]);
 
-    const addEnquete = (enquete) => {
-        console.log(enquete)
-    }
-    return(
+  const addEnquete = (enquete) => {
+    setEnquetes([...enquetes, enquete])
+  };
+  return (
+    <EnqueteContext.Provider value={{ enquetes, addEnquete }}>
+      {children}
+    </EnqueteContext.Provider>
+  );
+};
 
-        <EnqueteContext.Provider value={{enquetes, addEnquete}}>
-            {children}
-        </EnqueteContext.Provider>
-    )
-}
-
-export default EnqueteProvider
+export default EnqueteProvider;
