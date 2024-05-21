@@ -50,7 +50,7 @@ footer{
 
 main{
   display: flex;
-  flex: 1;
+  /*flex: 1;*/
   justify-content: center;
 }
 
@@ -104,3 +104,25 @@ input::placeholder{
   font-style: italic;
   text-shadow: 13px;
 }
+
+.box-enquete{
+  background-color: rgba(30, 71, 148, 0.178);
+  border-radius: 10px;
+  padding:1px 20px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 0px 0px 3px #fff;
+}
+
+.box-enquetes{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: unset;
+  width: unset;
+  box-shadow: unset
+}
+
+ul{
+  list-style: none;
+}
+

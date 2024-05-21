@@ -2,27 +2,23 @@ import React from "react";
 import { useState } from "react";
 import { useEnquetes } from "../config/EnqueteContext";
 
-
-
 const AdicionarEnquete = () => {
-  const {addEnquete} = useEnquetes()
+  const { addEnquete } = useEnquetes();
   const [enquete, setEnquete] = useState("");
   const [opcoes, setOpcoes] = useState([]);
-
 
   const submitForm = (e) => {
     e.preventDefault();
 
-    for(let i=0; i < opcoes.length; i++){
-      if(!opcoes[i]){
+    for (let i = 0; i < opcoes.length; i++) {
+      if (!opcoes[i]) {
         return false;
       }
-    
     }
 
-    addEnquete({enquete, opcoes});
-    setEnquete("")
-    setOpcoes([""])
+    addEnquete({ enquete, opcoes });
+    setEnquete("");
+    setOpcoes([""]);
   };
   const addOpcao = () => {
     setOpcoes([...opcoes, ""]);
@@ -73,13 +69,7 @@ const AdicionarEnquete = () => {
           ""
         )}
 
-        {opcoes.length > 0 ? (
-          <button className="animate__animated animate__zoomIn" type="submit">
-            Salvar
-          </button>
-        ) : (
-          ""
-        )}
+        {opcoes.length > 0 ? <button type="submit">Salvar</button> : ""}
       </form>
     </section>
   );
