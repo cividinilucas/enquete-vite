@@ -8,13 +8,16 @@ import {
   faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import Cookies from "js-cookie";
+import { useState } from "react";
 
 const Header = () => {
   const usuario = Cookies.get("usuario");
 
+  const[menuAberto, setMenuAberto] = useState(false);
+
   return (
     <header>
-      <nav>
+      <nav className={menuAberto ? "menu-aberto" : ""}>
         <div>
           <Link to="/listar-enquetes">
             <FontAwesomeIcon icon={faList} /> Listar Enquetes
@@ -41,6 +44,7 @@ const Header = () => {
           )}
         </div>
       </nav>
+      <div className="menu-icon"> &#9776; </div>
     </header>
   );
 };
