@@ -37,7 +37,7 @@ const ListarEnquete = () => {
                   onClick={() => submitVoto(index + 1 + "" + segundoIndex)}
                   key={index + 1 + "" + segundoIndex}
                 >
-                  {opcao}  - Votos: {votos[index + 1 + "" + segundoIndex]}
+                  {opcao}  - Votos: {votos[index + 1 + "" + segundoIndex] || 0}
                 </li>
               ))}
             </ul>

@@ -12,39 +12,42 @@ import { useState } from "react";
 
 const Header = () => {
   const usuario = Cookies.get("usuario");
-
   const[menuAberto, setMenuAberto] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuAberto(!menuAberto)
+  }
 
   return (
     <header>
       <nav className={menuAberto ? "menu-aberto" : ""}>
         <div>
-          <Link to="/listar-enquetes">
+          <Link to="/listar-enquetes" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faList} /> Listar Enquetes
           </Link>
-          <Link to="/sobre">
+          <Link to="/sobre" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faCircleInfo} /> Sobre
           </Link>
         </div>
 
         <div>
           {usuario == undefined ? (
-            <Link to="/login">
+            <Link to="/login" onClick={toggleMenu}>
               <FontAwesomeIcon icon={faUser} /> Login
             </Link>
           ) : (
             <>
-              <Link to="/adicionar-enquete">
+              <Link to="/adicionar-enquete" onClick={toggleMenu}>
                 <FontAwesomeIcon icon={faPlus} /> Adicionar Enquete
               </Link>
-              <Link to="/login">
+              <Link to="/login" onClick={toggleMenu}>
                 <FontAwesomeIcon icon={faUser} /> {usuario}
               </Link>
             </>
           )}
         </div>
       </nav>
-      <div className="menu-icon"> &#9776; </div>
+      <div className="menu-icon" onClick={toggleMenu}> &#9776; </div>
     </header>
   );
 };

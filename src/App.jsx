@@ -10,7 +10,6 @@ function App() {
             <main>
                 <Rotas></Rotas>
             </main>
-            {<Footer/>}
         </>
     )
 }
