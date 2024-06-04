@@ -16,6 +16,13 @@ const AdicionarEnquete = () => {
       }
     }
 
+    const formData = new FormData(e.target)
+
+    fetch("http://localhost/enquete/api/adiciona-enquete.php", {
+      method: "POST",
+      body: formData
+    }).then((resposta) => resposta.json())
+
     addEnquete({ enquete, opcoes });
     setEnquete("");
     setOpcoes([""]);
@@ -36,6 +43,7 @@ const AdicionarEnquete = () => {
         <label> Qual o nome da enquete? </label>
         <br />
         <input
+          name="titulo"
           autoFocus
           type="text"
           placeholder="Nome da enquete"
@@ -50,6 +58,7 @@ const AdicionarEnquete = () => {
               {`Opção ${index + 1}`}{" "}
             </label>
             <input
+              name="opcoes[]"
               type="text"
               value={option}
               onChange={(e) => handleOpcaoChange(e, index)}
