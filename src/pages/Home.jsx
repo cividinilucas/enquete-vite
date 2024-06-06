@@ -5,7 +5,7 @@ const Home = () => {
     <section>
       <h1>
         Bem vindo ao nosso site!
-        <p>Somos aluns do quinto período da Universidade Paranaense</p>
+        <p>Somos alunos do quinto período da Universidade Paranaense</p>
       </h1>
     </section>
   );
